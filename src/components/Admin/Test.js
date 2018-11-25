@@ -1,36 +1,33 @@
-import React, {Component} from 'react';
-import 'bootstrap/dist/css/bootstrap.min.css';
-
+import React, {Component} from 'react'
+import 'bootstrap/dist/css/bootstrap.min.css'
+import Request from './Request'
 
 class Test extends Component {
 	render() {
 
 		return (
-				<form action="" id="regForm" noValidate>
-					<div className="form-group">
+			<form action="" id="regForm" noValidate>
+				<div className="input-group mb-3">
+					<div className="input-group mb-3">
 						<select required className="form-control" id="selectGender">
 							<option value="" className="empty"></option>
-							<option value="male">Male</option>
-							<option value="female">Female</option>
+							
 						</select>
-						
 						<select required className="form-control" id="selectGender">
 							<option value="" className="empty"></option>
-							<option value="male">Male</option>
-							<option value="female">Female</option>
+							
 						</select>
-						
 						<select required className="form-control" id="selectGender">
 							<option value="" className="empty"></option>
-							<option value="male">Male</option>
-							<option value="female">Female</option>
+							
 						</select>
-						
-						<input type="text" className="form-control" id="inputName" placeholder="Test quest"></input>
-						
-						<button type="button" className="btn btn-dark">Add Quest</button>
 					</div>
-				</form>
+						<input type="text" className="form-control" id="inputName" placeholder="Quest"></input>
+					<div className="input-group-append">
+						<button onClick={Request} className="btn btn-outline-secondary" type="button" id="theme">Add fild</button>
+					</div>
+				</div>
+			</form>
 		)  
 	}
 }

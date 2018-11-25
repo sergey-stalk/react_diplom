@@ -1,32 +1,46 @@
-import React, {Component} from 'react';
-import 'bootstrap/dist/css/bootstrap.min.css';
+import React, {Component} from 'react'
+import 'bootstrap/dist/css/bootstrap.min.css'
+import Request from './Request'
 
 
 class Lesson extends Component {
 	render() {
-
-		return (
-				<form action="" id="regForm" noValidate>
-					<div className="form-group">
-						<select required className="form-control" id="selectGender">
-							<option value="" className="empty"></option>
-							<option value="male">Male</option>
-							<option value="female">Female</option>
-						</select>
-						<select required className="form-control" id="selectGender">
-							<option value="" className="empty"></option>
-							<option value="male">Male</option>
-							<option value="female">Female</option>
-						</select>
-						<select required className="form-control" id="selectGender">
-							<option value="" className="empty"></option>
-							<option value="male">Male</option>
-							<option value="female">Female</option>
-						</select>
-						<textarea className="form-control" id="exampleFormControlTextarea1" rows="10"></textarea>
-						<button type="button" className="btn btn-dark">Add lessons</button>
-					</div>
-				</form>
+		const courseData = this.props.course
+		const courseTags = courseData.map((course, i) => {
+			return(<option value={course} key={'l' + course + i}>{course}</option>)
+		})
+		const lThemeData = this.props.theme
+		const lThemeTags = lThemeData.map((theme, i) => {
+			return(<option value={theme} key={'l' + theme + i}>{theme}</option>)
+		})
+		const lSubThemeData = this.props.subTheme
+		const lSubThemeTags = lSubThemeData.map((subTheme, i) => {
+			return(<option value={subTheme} key={'l' + subTheme + i} >{subTheme}</option>)
+		})
+		return (	
+			<form action="" id="regForm" noValidate>
+				<div className="input-group mb-3">
+					<select required className="form-control" id="selectGender">
+						<option value="" className="empty"></option>
+						{courseTags}
+					</select>
+					<select required className="form-control" id="selectGender">
+						<option value="" className="empty"></option>
+						{lThemeTags}
+					</select>
+					<select required className="form-control" id="selectGender">
+						<option value="" className="empty"></option>
+						{lSubThemeTags}
+					</select>
+				</div>
+				<div className="input-group mb-3">
+					<textarea className="form-control" id="exampleFormControlTextarea1" rows="10"></textarea>
+				</div>
+				<div className="input-group-append">
+					<button onClick={Request} className="btn btn-outline-secondary" type="button" id="theme">Add fild</button>
+				</div>
+				
+			</form>
 		)  
 	}
 }
