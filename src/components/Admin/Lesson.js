@@ -1,37 +1,36 @@
 import React, {Component} from 'react'
 import 'bootstrap/dist/css/bootstrap.min.css'
 import Request from './Request'
-
+let $ = require("jquery")
 
 class Lesson extends Component {
+	constructor(props) {
+		super(props);
+		this.state = {state: 'none'}
+	}
+	handleclick(){
+		
+		this.setState(() => ({
+			state: 'course'
+		}))
+	}
 	render() {
-		const courseData = this.props.course
-		const courseTags = courseData.map((course, i) => {
-			return(<option value={course} key={'l' + course + i}>{course}</option>)
+		const courseTag = this.props.course.map((el, i) => {
+			return (<option key={`t ${i}`} value={el}>{el}</option>)
 		})
-		const lThemeData = this.props.theme
-		const lThemeTags = lThemeData.map((theme, i) => {
-			return(<option value={theme} key={'l' + theme + i}>{theme}</option>)
-		})
-		const lSubThemeData = this.props.subTheme
-		const lSubThemeTags = lSubThemeData.map((subTheme, i) => {
-			return(<option value={subTheme} key={'l' + subTheme + i} >{subTheme}</option>)
-		})
+		let alt;
+		function courseChenge() {
+			console.log($('#selectCourseLesson').val())
+			alt = 'Очко собаки'
+		}
 		return (	
 			<form action="" id="regForm" noValidate>
 				<div className="input-group mb-3">
-					<select required className="form-control" id="selectGender">
+					<select onChange={courseChenge} required className="form-control" id="selectCourseLesson">
 						<option value="" className="empty"></option>
-						{courseTags}
+						{courseTag}
 					</select>
-					<select required className="form-control" id="selectGender">
-						<option value="" className="empty"></option>
-						{lThemeTags}
-					</select>
-					<select required className="form-control" id="selectGender">
-						<option value="" className="empty"></option>
-						{lSubThemeTags}
-					</select>
+					{alt}
 				</div>
 				<div className="input-group mb-3">
 					<textarea className="form-control" id="exampleFormControlTextarea1" rows="10"></textarea>

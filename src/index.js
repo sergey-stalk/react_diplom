@@ -21,8 +21,11 @@ ReactDOM.render(<div id="preloader">
 (function getData () {
 	fetch(endpoint, myInit)
 		.then(res => res.json())
+		.then()
 		.then((res) => {
-			 ReactDOM.render(<Admin data={res} />, document.getElementById('root')); 
+			console.log(res)
+			ReactDOM.render(<Admin data={res} />, document.getElementById('root'));
+			
 		})
 }())
 

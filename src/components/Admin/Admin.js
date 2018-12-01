@@ -2,7 +2,6 @@ import React, {Component} from 'react'
 import 'bootstrap/dist/css/bootstrap.min.css'
 import Course from './Course'
 import Theme from './Theme'
-import SubTheme from './SubTheme'
 import Qst from './Qst'
 import Test from './Test'
 import Lesson from './Lesson'
@@ -56,7 +55,6 @@ class Admin extends Component {
 	}
 	
 	render() {
-		console.log(this.props.data.course)
 		const value = this.state.state; 
 		const btns = (
 						<div className="btn-toolbar" role="toolbar" aria-label="Toolbar with button groups">
@@ -74,9 +72,10 @@ class Admin extends Component {
 			<div className='container'>
 				{btns}
 				<br></br>
+				<div className='mess'></div>
 				<Course />
 				<Theme course={this.props.data.course} />
-				<SubTheme />
+				<Lesson course={this.props.data.course} theme={this.props.data.theme}/>
 			</div>);
 
 	 	if (value === 'course') {
@@ -93,10 +92,10 @@ class Admin extends Component {
 					{btns}
 					<br></br>
 					<Qst />
-					<Test /* course={course} theme={theme} subTheme={subTheme} *//>
+					<Test />
 				</div>);
 
-			console.log('qst');
+			
 		} 
 		if (value === 'lesson') {
 			$('.active').toggleClass("active");
