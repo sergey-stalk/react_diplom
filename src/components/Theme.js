@@ -7,13 +7,6 @@ let header = new Headers({
 	'Content-Type': 'text/javascript'
 });
 class Theme extends Component {
-	constructor(props) {
-		super(props);
-		this.state = {message: 0}
-	}
-	hanldleClick () {
-		
-	}
 	render() {
 		const courseTag = this.props.course.map((el, i) => {
 			return (<option key={`t ${i}`} value={el}>{el}</option>)
@@ -21,7 +14,7 @@ class Theme extends Component {
 
 		function Req () {
 			let course = $('#selectCourse').val()
-			let theme = $('#theme').val()
+			let theme = $('#inputTheme').val()
 			let body = [course, theme]
 			let endpoint = 'http://localhost:8080/admin/addtheme'
 				let myInit = { method: 'POST',
@@ -35,23 +28,31 @@ class Theme extends Component {
 					if (res.statusEror) {
 						$('.mess').text(res.message)
 						$('.mess').removeClass('success').addClass('err')
+						setTimeout(()=>{
+							$('.mess').removeClass('err');
+							$('.mess').text('');
+						}, 2000)
 
 					} else {
 						$('.mess').text(res.message)
 						$('.mess').removeClass('err').addClass('success')
+						setTimeout(()=>{
+							$('.mess').removeClass('success');
+							$('.mess').text('');
+						}, 2000)
 					}
 				})
 		}
 
 		return (
-			<form action="" id="theme" noValidate>
+			<form action="" id="themeform" noValidate>
 				<div className="input-group mb-3">
-						<input id='theme' type="text" className="form-control" placeholder="Add theme name" aria-label="Recipient's username" aria-describedby="button-addon2"></input>
+						<input id='inputTheme' type="text" className="form-control" placeholder="Add theme name" aria-label="Recipient's username" aria-describedby="button-addon2"></input>
 						<select required className="form-control" id="selectCourse">
 							{courseTag}
 						</select>
 					<div className="input-group-append">
-						<button onClick={Req} className="btn btn-outline-secondary" type="button" id="theme">Add fild</button>
+						<button onClick={Req} className="btn btn-outline-secondary" type="button" id="addTheme">Add Theme</button>
 					</div>
 				</div>
 			</form>

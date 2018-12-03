@@ -24,4 +24,17 @@
 .mess.err {
 	background: #ff2400;
 }
+.showAria {
+	display: none;
+	padding: 5px 20px 5px 20px;
+}
+td {
+	border: 1px solid black;
+}
+#showQuestArea{
+	text-align: left;
+	white-space: pre-wrap;
+	text-transform: uppercase;
+	font-weight: 700;
+}
 

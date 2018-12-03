@@ -24,10 +24,18 @@ class Course extends Component {
 					if (res.statusEror) {
 						$('.mess').text(res.message)
 						$('.mess').removeClass('success').addClass('err')
+						setTimeout(()=>{
+							$('.mess').removeClass('err');
+							$('.mess').text('');
+						}, 2000)
 
 					} else {
 						$('.mess').text(res.message)
 						$('.mess').removeClass('err').addClass('success')
+						setTimeout(()=>{
+							$('.mess').removeClass('success');
+							$('.mess').text('');
+						}, 2000)
 					}
 				})
 		}
@@ -36,7 +44,7 @@ class Course extends Component {
 					<div className="input-group mb-3">
 							<input required type="text" id="course" className="form-control" placeholder="Add Course name" aria-label="Recipient's username" aria-describedby="button-addon2"></input>
   						<div className="input-group-append">
-    						<button onClick={Req} className="btn btn-outline-secondary" type="button" id="course">Add fild</button>
+    						<button onClick={Req} className="btn btn-outline-secondary" type="button" id="course">Add Course</button>
 						</div>
 					</div>
 				</form>

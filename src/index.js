@@ -1,6 +1,6 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
-import Admin from './components/Admin/Admin'
+import Admin from './components/Admin'
 
 let header = new Headers({
 	'Content-Type': 'application/json',
@@ -18,7 +18,7 @@ ReactDOM.render(<div id="preloader">
 				</div>, 
 				document.getElementById('root'));
 
-(function getData () {
+(function () {
 	fetch(endpoint, myInit)
 		.then(res => res.json())
 		.then()
@@ -27,5 +27,6 @@ ReactDOM.render(<div id="preloader">
 			ReactDOM.render(<Admin data={res} />, document.getElementById('root'));
 			
 		})
-}())
+})()
+
 
