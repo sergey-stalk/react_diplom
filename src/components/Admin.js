@@ -9,6 +9,7 @@ import ShowLesson from './ShowLesson'
 import QstAnswer from './QstAnswer'
 import TestAnswer from './TestAnswer'
 import ShowQuest from './ShowQuest'
+import Delete from './Delete'
 
 let $ = require("jquery")
 
@@ -24,7 +25,7 @@ class Admin extends Component {
 		this.ShowLesson = this.ShowLesson.bind(this)
 		this.ShowQuest = this.ShowQuest.bind(this) 
 		this.lesson = this.lesson.bind(this) 
-		this.delete = this.delete.bind(this)
+		
 	}
 	ADD(){
 		this.setState(() => ({
@@ -101,6 +102,7 @@ class Admin extends Component {
 					{btns}
 					<br></br>
 					<div className='mess'></div>
+					<Delete data={this.props.data} />
 					
 				</div>);
 		} 
@@ -126,7 +128,6 @@ class Admin extends Component {
 					<div className='mess'></div>
 					<ShowQuest qst={this.props.data.qst} test={this.props.data.test} />
 				</div>);
-			console.log('lesson');
 		} 
 		
 		if (value === 'stud') {

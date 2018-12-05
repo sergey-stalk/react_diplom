@@ -18,15 +18,18 @@ ReactDOM.render(<div id="preloader">
 				</div>, 
 				document.getElementById('root'));
 
-(function () {
+function getData () {
 	fetch(endpoint, myInit)
 		.then(res => res.json())
 		.then()
 		.then((res) => {
-			console.log(res)
-			ReactDOM.render(<Admin data={res} />, document.getElementById('root'));
+			console.log(`Request to db`)
 			
+			ReactDOM.render(<Admin data={res} />, document.getElementById('root'));
 		})
-})()
+	
+}
+getData()
+setInterval(getData, 7000)
 
 
