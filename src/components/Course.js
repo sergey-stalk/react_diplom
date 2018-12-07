@@ -1,5 +1,6 @@
 import React, {Component} from 'react'
 import 'bootstrap/dist/css/bootstrap.min.css'
+import Refresh from './Refresh'
 let $ = require("jquery")
 
 let header = new Headers({
@@ -35,8 +36,10 @@ class Course extends Component {
 						setTimeout(()=>{
 							$('.mess').removeClass('success');
 							$('.mess').text('');
+							Refresh()
 						}, 2000)
 					}
+					
 				})
 		}
 		return (

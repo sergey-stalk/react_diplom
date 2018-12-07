@@ -1,6 +1,8 @@
 import React, {Component} from 'react'
 import 'bootstrap/dist/css/bootstrap.min.css'
+import Refresh from './Refresh'
 let $ = require("jquery")
+
 
 let header = new Headers({
 	'Accept': 'application/json, text/plain, */*',
@@ -27,7 +29,6 @@ class Test extends Component {
 					   header: {header},
 					   body: body
 					};
-			console.log(body)
 			fetch(endpoint, myInit)
 				.then(res => res.json())
 				.then((res) => {
@@ -45,6 +46,7 @@ class Test extends Component {
 						setTimeout(()=>{
 							$('.mess').removeClass('success');
 							$('.mess').text('');
+							Refresh()
 						}, 2000)
 					}
 				})

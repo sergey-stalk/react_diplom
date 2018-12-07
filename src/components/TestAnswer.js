@@ -1,6 +1,8 @@
 import React, {Component} from 'react'
 import 'bootstrap/dist/css/bootstrap.min.css'
+import Refresh from './Refresh'
 let $ = require("jquery")
+
 
 let header = new Headers({
 	'Accept': 'application/json, text/plain, */*',
@@ -50,6 +52,7 @@ class TestAnswer extends Component {
 							$('.mess').text('');
 						}, 2000)
 					}
+					Refresh()
 				})
 		}
 		return (

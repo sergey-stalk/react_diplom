@@ -13,6 +13,7 @@ import QstAnswer from './components/QstAnswer'
 import Delete from './components/Delete'
 import {Router, Route, Link} from 'react-router-dom'
 import createBrowserHistory from "history/createBrowserHistory"
+import Greeting from './components/Greeting'
 import './preload.css'
 
 
@@ -43,7 +44,7 @@ ReactDOM.render(<div id="preloader">
 				</div>, 
 				document.getElementById('root'));
 
-function getData () {
+function getData (login) {
 	fetch(endpoint, myInit)
 		.then(res => res.json())
 		.then((res) => {
@@ -107,6 +108,10 @@ function getData () {
 				)
 				return (sqst)
 			}
+			let greetingWrapper = () => {
+				return <Greeting user={login}/>
+			}
+			
 			
 			ReactDOM.render(<Router history={customHistory}>
 				<div>
@@ -116,13 +121,14 @@ function getData () {
 					<Route exact path="/admin" component={NavBar} />
 					<Route exact path="/" component={Registration} />
 					<Route path="/admin/Add" component={WrapperAdd} />
+					<Route path="/greeting" component={greetingWrapper} />
 				</div>
 			</Router>, document.getElementById('root'));
 		})
 	
 }
 getData()
-setInterval(getData, 7000)
+
 
 
 export default getData;

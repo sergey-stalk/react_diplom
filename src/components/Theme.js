@@ -1,6 +1,7 @@
 
 import React, {Component} from 'react'
 import 'bootstrap/dist/css/bootstrap.min.css'
+import Refresh from './Refresh'
 let $ = require("jquery")
 
 
@@ -43,8 +44,7 @@ class Theme extends Component {
 							$('.mess').text('');
 						}, 2000)
 					}
-					
-
+					Refresh()
 				})
 		}
 
