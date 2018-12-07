@@ -2,6 +2,7 @@ import React, {Component} from 'react'
 import 'bootstrap/dist/css/bootstrap.min.css'
 let $ = require("jquery")
 
+
 let header = new Headers({
 	'Accept': 'application/json, text/plain, */*',
 	'Content-Type': 'text/javascript'
@@ -9,7 +10,6 @@ let header = new Headers({
 
 class ShowQuest extends Component {
 	render () {
-		console.log(this.props)
 		const qst = this.props.qst.map((el, i) => {
 			return (<option key={`lts ${i}`} value={el}>{el}</option>)
 		})

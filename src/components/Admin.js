@@ -32,6 +32,7 @@ class Admin extends Component {
 			state: 'ADD'
 		}))
 	} 
+	
 	DELETE(){
 		this.setState(() => ({
 			state: 'DELETE'
@@ -59,6 +60,7 @@ class Admin extends Component {
 	}
 	
 	render() {
+		console.log(this.props.data)
 		const value = this.state.state; 
 		const btns = (
 						<div className="btn-toolbar" role="toolbar" aria-label="Toolbar with button groups">

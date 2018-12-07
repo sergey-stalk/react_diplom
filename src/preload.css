@@ -1,6 +1,4 @@
-body {
-	background-color: #222;
-  }
+
   #preloader {
 	  position: fixed;
 	  top: 0;
@@ -72,3 +70,53 @@ body {
 		  transform: rotate(360deg);
 	  }
   }
+  .item {
+	cursor: pointer;
+}
+.lesson {
+	max-width: 100%;
+}
+.mess {
+	height: 40px;
+	width: 100%;
+	line-height: 40px;
+	margin-bottom: 15px;
+	text-align: left;
+	font-family: Arial, Helvetica, sans-serif;
+	color: black;
+	box-sizing: border-box;
+	text-transform: uppercase;
+	padding-left: 10px;
+	font-size: 0.7em;
+	font-weight: 900;
+}
+.mess.success {
+	background: #22DD25;
+}
+.mess.err {
+	background: #ff2400;
+}
+.showAria {
+	display: none;
+	padding: 5px 20px 5px 20px;
+}
+td {
+	border: 1px solid black;
+}
+#showQuestArea{
+	text-align: left;
+	white-space: pre-wrap;
+	text-transform: uppercase;
+	font-weight: 700;
+}
+#btns {
+	margin-top: 50px;
+	margin-left: 40%
+}
+#signup {
+	margin-left: 20px; 
+}
+.sign {
+	text-transform: uppercase;
+}
+

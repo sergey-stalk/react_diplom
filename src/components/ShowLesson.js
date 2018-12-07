@@ -27,11 +27,9 @@ class ShowLesson extends Component {
 					   header: {header},
 					   body: body
 					};
-			console.log(body)
 			fetch(endpoint, myInit)
 				.then(res => res.json())
 				.then((res) => {
-					console.log(res.statusEror)
 					if (res.statusEror) {
 						$('.mess').text(res.message)
 						$('.mess').removeClass('success').addClass('err')

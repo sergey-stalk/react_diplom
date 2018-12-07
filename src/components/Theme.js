@@ -1,6 +1,8 @@
+
 import React, {Component} from 'react'
 import 'bootstrap/dist/css/bootstrap.min.css'
 let $ = require("jquery")
+
 
 let header = new Headers({
 	'Accept': 'application/json, text/plain, */*',
@@ -41,6 +43,8 @@ class Theme extends Component {
 							$('.mess').text('');
 						}, 2000)
 					}
+					
+
 				})
 		}
 
