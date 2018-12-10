@@ -119,4 +119,26 @@ td {
 .sign {
 	text-transform: uppercase;
 }
-
+.wmessa {
+	display: flex;
+	margin-bottom: 50px;
+	width: 100%;
+	justify-content: space-between
+}
+.messa {
+	height: 60px;
+	line-height: 40px;
+	margin-bottom: 15px;
+	text-align: left;
+	font-family: Arial, Helvetica, sans-serif;
+	color: black;
+	box-sizing: border-box;
+	text-transform: uppercase;
+	padding-left: 10px;
+	font-size: 1.2em;
+	font-weight: 900;
+	display: flex;
+}
+#start {
+	height: 100%;
+}

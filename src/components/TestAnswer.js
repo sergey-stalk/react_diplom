@@ -26,7 +26,7 @@ class TestAnswer extends Component {
 			}
 
 			let body = [test,answer,right]
-			let endpoint = 'http://localhost:8080/admin/addtestanswer'
+			let endpoint = 'http://localhost:8080/admin/addqstanswer'
 				let myInit = { method: 'POST',
 					   mode: 'cors',
 					   header: {header},
@@ -50,9 +50,10 @@ class TestAnswer extends Component {
 						setTimeout(()=>{
 							$('.mess').removeClass('success');
 							$('.mess').text('');
+							Refresh()
 						}, 2000)
 					}
-					Refresh()
+					
 				})
 		}
 		return (

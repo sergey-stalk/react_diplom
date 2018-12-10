@@ -23,7 +23,7 @@ class Lesson extends Component {
 		function Req () {
 			let lesson = $('#lesson').val()
 			let theme = $('#selestLessonsTheme').val()
-			let body = [theme, lesson]
+			let body = `${theme}----${lesson}`
 			let endpoint = 'http://localhost:8080/admin/addlessons'
 				let myInit = { method: 'POST',
 					   mode: 'cors',

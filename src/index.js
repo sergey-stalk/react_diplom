@@ -14,6 +14,8 @@ import Delete from './components/Delete'
 import {Router, Route, Link} from 'react-router-dom'
 import createBrowserHistory from "history/createBrowserHistory"
 import Greeting from './components/Greeting'
+import Testing from './components/Testing'
+import Lerning from './components/lerning'
 import './preload.css'
 
 
@@ -44,7 +46,7 @@ ReactDOM.render(<div id="preloader">
 				</div>, 
 				document.getElementById('root'));
 
-function getData (login) {
+function getData () {
 	fetch(endpoint, myInit)
 		.then(res => res.json())
 		.then((res) => {
@@ -61,7 +63,7 @@ function getData (login) {
 						<Qst course={res.course} data={res.ltheme} />
 						<Test data={res.ltheme} />
 						<QstAnswer qst={res.qst} />
-						<TestAnswer test={res.test} />
+						<TestAnswer test={res.qst} />
 					</div>
 				)
 				return (add)
@@ -108,10 +110,9 @@ function getData (login) {
 				)
 				return (sqst)
 			}
-			let greetingWrapper = () => {
-				return <Greeting user={login}/>
+			let TestingWrapper = () => {
+				return (<Testing  data={res.qstAnswer} />)
 			}
-			
 			
 			ReactDOM.render(<Router history={customHistory}>
 				<div>
@@ -121,7 +122,9 @@ function getData (login) {
 					<Route exact path="/admin" component={NavBar} />
 					<Route exact path="/" component={Registration} />
 					<Route path="/admin/Add" component={WrapperAdd} />
-					<Route path="/greeting" component={greetingWrapper} />
+					<Route path="/greeting" component={Greeting} />
+					<Route path="/test" component={TestingWrapper} />
+					<Route path="/lerning" component={Lerning} />
 				</div>
 			</Router>, document.getElementById('root'));
 		})

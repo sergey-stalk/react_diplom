@@ -30,7 +30,7 @@ class Delete extends Component {
 		const qstAnswerTag = this.props.data.qstAnswer.map((el, i) =>{
 			return (<option key={`qad ${i}`} value={el}>{el}</option>)
 		})
-		const testAnswerTag = this.props.data.testAnswer.map((el, i) =>{
+		const testAnswerTag = this.props.data.qstAnswer.map((el, i) =>{
 			return (<option key={`tad ${i}`} value={el}>{el}</option>)
 		})
 		function reqDelete (e) {

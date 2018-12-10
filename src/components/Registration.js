@@ -1,7 +1,6 @@
 import React, {Component} from 'react'
 import 'bootstrap/dist/css/bootstrap.min.css'
 import { Redirect } from 'react-router-dom'
-import Refresh from './Refresh'
 
 let $ = require("jquery")
 
@@ -55,47 +54,16 @@ class Registration extends Component {
 						setTimeout(()=>{
 							$('.mess').removeClass('success');
 							$('.mess').text('');
+							document.cookie=`${login}`
+							this.setState(()=>({
+								sign: 'redirect'
+							}))
 						}, 2000)
-						Refresh(login)
-						this.setState(()=>({
-							sign: 'redirect'
-						}))
 					}
 				})
 	}
 	
 	render() {
-		/* function enter() {
-			let login = $('#loginIn').val()
-			let pass = $('#passwordIn').val()
-			let body = [login, pass]
-			let endpoint = 'http://localhost:8080/enter'
-				let myInit = { method: 'POST',
-					   mode: 'cors',
-					   header: {header},
-					   body: body
-					};
-			fetch(endpoint, myInit)
-				.then(res => res.json())
-				.then((res) => {
-					if (res.statusEror) {
-						$('.mess').text(res.message)
-						$('.mess').removeClass('success').addClass('err')
-						setTimeout(()=>{
-							$('.mess').removeClass('err');
-							$('.mess').text('');
-						}, 2000)
-
-					} else {
-						$('.mess').text(res.message)
-						$('.mess').removeClass('err').addClass('success')
-						setTimeout(()=>{
-							$('.mess').removeClass('success');
-							$('.mess').text('');
-						}, 2000)
-					}
-				})
-		} */
 
 		function reg() {
 			let login = $('#loginUp').val()
@@ -174,7 +142,7 @@ class Registration extends Component {
 					{signUpForm}
 				</div>
 			)
-		} else {
+		} else if (this.state.sign === 'redirect'){
 			return <Redirect to="/greeting" />
 		}
 		

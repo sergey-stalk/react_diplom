@@ -13,7 +13,7 @@ class ShowQuest extends Component {
 		const qst = this.props.qst.map((el, i) => {
 			return (<option key={`lts ${i}`} value={el}>{el}</option>)
 		})
-		const test = this.props.test.map((el, i) => {
+		const test = this.props.qst.map((el, i) => {
 			return (<option key={`lts ${i}`} value={el}>{el}</option>)
 		})
 		
@@ -52,7 +52,7 @@ class ShowQuest extends Component {
 		function Reg () {
 			let qst = $('#showTest').val()
 			let body = [qst]
-			let endpoint = 'http://localhost:8080/admin/showtest'
+			let endpoint = 'http://localhost:8080/admin/showquest'
 				let myInit = { method: 'POST',
 					   mode: 'cors',
 					   header: {header},
@@ -73,7 +73,7 @@ class ShowQuest extends Component {
 					} else {
 						let qstAns =[];
 						for (let i = 0; i < res.length; i++) {
-							qstAns[i] = `${res[i].testAnswer}  ---  Правильность: ${res[i].rtest}` 
+							qstAns[i] = `${res[i].qstAnswer}  ---  Правильность: ${res[i].rtest}` 
 						}
 						
 						$("#showQuestArea").text(qstAns.join('\n'))

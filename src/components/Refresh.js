@@ -1,7 +1,7 @@
 import getData from '../index'
 
-function Refresh (login) {
-	getData(login)
+function Refresh () {
+	getData()
 }
 
 export default Refresh
